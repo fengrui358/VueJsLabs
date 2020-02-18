@@ -10,23 +10,23 @@
 
   <body>
     <div id="app">
-      <!-- 插池，不能使用条件语句 -->
+      <!-- 1.插池，不能使用条件语句 -->
       <span>{{message}} {{value}}</span>
-      <!-- vue binding -->
+      <!-- 2.vue binding -->
       <span v-bind:title="value">文本</span>
-      <!-- vue bingding id -->
+      <!-- 3.vue bingding id -->
       <div :id="message"></div>
       <ul>
         <li>
-          <!-- vue 条件渲染 -->
+          <!-- 4.vue 条件渲染 -->
           <span v-if="!item.del">{{item.title}}</span>
           <span v-else style="text-decoration: line-through;"
             >{{item.title}}</span
           >
-          <!-- vue show -->
+          <!-- 5.vue show -->
           <button v-show="!item.del">删除</button>
         </li>
-        <!-- vue for语句 -->
+        <!-- 6.vue for语句 -->
         <li v-for="item in list">
           <span v-if="!item.del">{{item.title}}</span>
           <span v-else style="text-decoration: line-through;"
