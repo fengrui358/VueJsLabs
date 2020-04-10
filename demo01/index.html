@@ -16,6 +16,7 @@
       <span v-bind:title="value">文本</span>
       <!-- 3.vue bingding id -->
       <div :id="message"></div>
+      <button v-on:click="reverseMessage">反转</button>
       <ul>
         <li>
           <!-- 4.vue 条件渲染 -->
@@ -61,7 +62,13 @@
               del: false
             }
           ]
-        }
+        },
+        methods:{
+            reverseMessage : function()
+            {
+              this.message = this.message.split('').reverse().join('');
+            }
+          }
       });
     </script>
   </body>
