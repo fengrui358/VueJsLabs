@@ -32,8 +32,28 @@ var vm = new Vue({
     reverseMessage: function () {
       this.message = this.message.split("").reverse().join("");
     },
-    deleteHandler: function (title, event) {
+    deleteHandler: function () {
+      let index = -1;
+      
+      for (let i = 0; i < this.list.length; i++) {
+        const element = this.list[i];
+        if(element.title === "t")
+        {
+          index = i;
+          break;
+        }
+      }
 
+      if (index >= 0) {
+        list.splice(index, 1);
+      }
+
+      // list.array.forEach(element, (index) => {
+      //   if (element.title === "title") {
+      //     //index = index;
+      //     break;
+      //   }
+      // });
     }
   },
 });

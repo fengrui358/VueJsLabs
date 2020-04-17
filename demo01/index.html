@@ -25,13 +25,13 @@
             >{{item.title}}</span
           >
           <!-- 5.vue show -->
-          <button v-show="!item.del" @click="deleteHandler" title="title">删除</button>
+          <button v-show="!item.del" title="title">删除</button>
         </li>
         <!-- 6.vue for语句 -->
         <li v-for="(item, index) of list">
           <span v-if="!item.del">{{item.title}}</span>
           <span v-else :style="styleObj">{{item.title}}</span>
-          <button v-show="!item.del" @click="">删除{{index}}</button>
+          <button v-show="!item.del" @click="deleteHandler">删除{{index}}</button>
         </li>
       </ul>
     </div>
