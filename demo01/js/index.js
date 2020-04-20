@@ -3,6 +3,17 @@ var styleObj = {
   color: "red",
 };
 
+Vue.component('course-item', {
+  props: ['course'],
+  template: `
+  <li>
+    <span v-if="!course.del">{{course.title}}</span>
+    <span v-else style="styleObj">{{course.title}}</span>
+    <button>{{course.del}}</button>
+  </li>
+  `
+});
+
 var vm = new Vue({
   el: "#app",
   data: {

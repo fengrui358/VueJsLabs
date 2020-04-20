@@ -34,6 +34,11 @@
           <button v-show="!item.del" @click="deleteHandler">删除{{index}}</button>
         </li>
       </ul>
+
+      <p>下面是组件列表示例</p>
+      <ul>
+        <course-item v-for="item in list" :key="item.title" :course="item"></course-item>
+      </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/index.js"></script>
