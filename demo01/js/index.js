@@ -3,13 +3,13 @@ var styleObj = {
   color: "red",
 };
 
-Vue.component('course-item', {
-  props: ['course','style-obj'],
+Vue.component("course-item", {
+  props: ["course", "style-obj"],
   template: `
   <li>
     <span v-if="!course.del">{{course.title}}</span>
     <span v-else :style="styleObj">{{course.title}}</span>
-    <button v-show="!course.del" v-on:click="$emit('del-event')">删除</button>
+    <button v-show="!course.del" v-on:click="$emit('del-event', course.title)">删除</button>
   </li>
   `,
 });
@@ -43,29 +43,22 @@ var vm = new Vue({
     reverseMessage: function () {
       this.message = this.message.split("").reverse().join("");
     },
-    deleteHandler: function (event) {
+    deleteHandler: function (title) {
       let index = -1;
-      
+
       for (let i = 0; i < this.list.length; i++) {
         const element = this.list[i];
-        if(element.title === "title")
-        {
+        if (element.title === title) {
           index = i;
           break;
         }
       }
 
       if (index >= 0) {
-        list.splice(index, 1);
+        //this.list.splice(index, 1);
+        this.list[index].del = true;
       }
-
-      // list.array.forEach(element, (index) => {
-      //   if (element.title === "title") {
-      //     //index = index;
-      //     break;
-      //   }
-      // });
-    }
+    },
   },
 });
 
