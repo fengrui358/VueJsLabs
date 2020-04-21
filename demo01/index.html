@@ -37,7 +37,7 @@
 
       <p>下面是组件列表示例</p>
       <ul>
-        <course-item v-for="item in list" :key="item.title" :course="item"></course-item>
+        <course-item v-for="item in list" :key="item.title" :course="item" :style-obj="styleObj" v-on:del-event="deleteHandler"></course-item>
       </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

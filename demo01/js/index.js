@@ -4,14 +4,14 @@ var styleObj = {
 };
 
 Vue.component('course-item', {
-  props: ['course'],
+  props: ['course','style-obj'],
   template: `
   <li>
     <span v-if="!course.del">{{course.title}}</span>
-    <span v-else style="styleObj">{{course.title}}</span>
-    <button>{{course.del}}</button>
+    <span v-else :style="styleObj">{{course.title}}</span>
+    <button v-show="!course.del" v-on:click="$emit('del-event')">删除</button>
   </li>
-  `
+  `,
 });
 
 var vm = new Vue({
@@ -43,12 +43,12 @@ var vm = new Vue({
     reverseMessage: function () {
       this.message = this.message.split("").reverse().join("");
     },
-    deleteHandler: function () {
+    deleteHandler: function (event) {
       let index = -1;
       
       for (let i = 0; i < this.list.length; i++) {
         const element = this.list[i];
-        if(element.title === "t")
+        if(element.title === "title")
         {
           index = i;
           break;
