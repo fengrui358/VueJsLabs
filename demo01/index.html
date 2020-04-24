@@ -45,7 +45,14 @@
           :course="item"
           :style-obj="styleObj"
           v-on:del-event="deleteHandler"
-        ></course-item>
+        >
+          <template v-slot:header="{course}"
+            ><a href="#" v-if="!item.del">
+              插槽测试Header {{message}}--{{course.title}}</a
+            ></template
+          >
+          <a href="#" v-if="item.del"> 插槽测试 {{message}}</a></course-item
+        >
       </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

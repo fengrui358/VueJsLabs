@@ -6,12 +6,14 @@ var styleObj = {
 Vue.component("course-item", {
   props: ["course", "style-obj"],
   template: `
-  <li>
-    <span v-if="!course.del">{{course.title}}</span>
+  <li :inner="course">
+    <slot v-if="!course.del" name="header" :course="course">gggg</slot>
+    <span v-if="!course.del">{{course.title}}+{{$root.message}}</span>
     <span v-else :style="styleObj">{{course.title}}</span>
     <button v-show="!course.del" v-on:click="$emit('del-event', course.title)">删除</button>
+    <slot name="default">I'm slot.</slot>
   </li>
-  `,
+  `
 });
 
 var vm = new Vue({
