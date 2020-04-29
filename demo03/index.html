@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<!-- https://www.cnblogs.com/zhuoshen/p/9577220.html -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    // 块作用域
+    {
+      var a = 1;
+      let b = 2;
+      const c = 3;
+
+      b = "b";
+      // c = 4; // 报错，const不能修改
+
+      var aa;
+      let bb;
+      // const cc; // 报错，必须初始化(即必须赋值)
+
+      console.log(a); // 1
+      console.log(b); // 2
+      console.log(c); // 3
+    }
+    console.log(a); // 1
+    // console.log(b); // 报错，只能在块作用域里访问
+    // console.log(c); // 报错，只能在块作用域里访问
+
+    // 函数作用域
+    (function A() {
+      var d = 5;
+      let e = 6;
+      const f = 7;
+
+      console.log(d); // 5
+      console.log(e); // 6  (在同一个{ }中,也属于同一个块，可以正常访问到)
+      console.log(f); // 7  (在同一个{ }中,也属于同一个块，可以正常访问到)
+    })(); // console.log(d); // 报错，不能跨函数访问 // console.log(e); // 报错，不能跨函数访问 // console.log(f); // 报错，不能跨函数访问
+  </script>
+</html>

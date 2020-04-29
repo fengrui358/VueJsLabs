@@ -2,6 +2,12 @@
 	"folders": [
 		{
 			"path": "demo01"
+		},
+		{
+			"path": "demo02"
+		},
+		{
+			"path": "demo03"
 		}
 	],
 	"settings": {}
