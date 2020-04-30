@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div name="name1"></div>
+        <div id="repeatId" data-s="Id1"></div>
+        <div id="repeatId" data-s="Id2"></div>
+        <div name="repeatName" data-s="Name1"></div>
+        <div name="repeatName" data-s="Name2"></div>
+    </div>
+</body>
+<script>
+    (function(){
+        var div1 = document.getElementById('div1');
+        console.log(`获取到唯一id元素 ${div1.getAttribute('id')}`);
+
+        var name1s = document.getElementsByName('name1');
+        console.log(`获取到${name1s.length}个name元素，第1个是${name1s[0].getAttribute('name')}`);
+
+        var id2 = document.getElementById('repeatId');
+        console.log(`获取到重复id元素的前者，${id2.getAttribute('data-s')}`);
+        
+        var name2s = document.getElementsByName('repeatName');
+        console.log(`获取到${name2s.length}个name元素，第1个是${name2s[0].getAttribute('data-s')}`);
+        
+        var divTag3 = document.getElementsByTagName('div');
+        console.log(`获取到${divTag3.length}个div元素，第3个是${divTag3[2].getAttribute('data-s')}`);
+        
+    })();
+</script>
+</html>
